@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
+
 <!-- transform camera to kinect2 -->
  <node name="camera_to_kinect2_TFPublisher" pkg="tf" type="static_transform_publisher" args="-0 0 0 -1.5707963267948966 0 -1.5707963267948966 camera_link kinect2_link 100" required="true"/>
 <!-- transform of NakBot -->
@@ -12,18 +13,5 @@
 
 <!-- JetSAS node -->
  <node name="JetSAS_node" pkg="JetSAS" type="JetSAS_node"/>
-
-<!-- rtabmap main -->
- <include file="$(find rtabmap_ros)/launch/rtabmap.launch">
-  <arg name="rtabmap_args" value="--delete_db_on_start"/>
-  <arg name="rgb_topic" value="/kinect2/qhd/image_color_rect"/>
-  <arg name="depth_topic" value="/kinect2/qhd/image_depth_rect"/>
-  <arg name="camera_info_topic" value="/kinect2/qhd/camera_info"/>
-  <arg name="approx_sync" value="false"/>
-  <arg name="rviz" value="true"/>
-  <arg name="rtabmapviz" value="false"/>
-  <arg name="rviz_cfg"   value="$(find NakBot_slam)/config/rgbd.rviz" />
- </include>
-
 
 </launch>

@@ -49,6 +49,8 @@
 
  <node name="NakBot_transform_publisher" pkg="JetSAS" type="NakBot_transform_publisher"/>
 
+ <node name="foo" pkg="JetSAS" type="$(find JetSAS)/scripts/set_parameter.sh"/>
+
 <!-- rviz -->
   <arg name="rviz_cfg"                default="$(find NakBot_slam)/config/gmapping.rviz" />
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rviz_cfg)"/>
